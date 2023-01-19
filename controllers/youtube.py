@@ -28,12 +28,16 @@ def playlist_videos(url: str, target: str) -> Data:
 
 # todo: add a docstring
 def download(pipe: Connection, target: str, url: str) -> None:
-    youtube: YouTube = pytube.YouTube(url)
-    video: Stream | None = youtube.streams.filter(only_audio=True).first()
+    try:
+        youtube: YouTube = pytube.YouTube(url)
+        video: Stream | None = youtube.streams.filter(only_audio=True).first()
+
+    except Exception as err:
+        pipe.send({'info': err, 'is_ok': False,  'done': True})
+        return
 
     target_file: str = video.download(output_path=target)
 
     basename, _ = os.path.splitext(target_file)
     os.rename(target_file, basename + '.mp3')
-
-    pipe.send({'title': youtube.title, 'status': True})
+    pipe.send({'info': youtube.title, 'is_ok': True,  'done': True})

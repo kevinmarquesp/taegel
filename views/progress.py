@@ -41,8 +41,14 @@ def downloading(pipe: Connection, total: int) -> None:
 
         while not progress.finished:
             status: dict = pipe.recv()
-            bfr = f'Downloaded [cyan]{status["title"]}[/] with success!'
-            progress.console.print(bfr, style='green')
 
-            if status['status']:
+            if status['done']:
                 progress.update(task_download, advance=1)
+
+            if status['is_ok']:
+                bfr = f'Downloaded [cyan]{status["info"]}[/] with success!'
+                progress.console.print(bfr, style='green')
+
+            else:
+                bfr = f'{status["info"]}, sorry...'
+                progress.console.print(bfr, style='red')

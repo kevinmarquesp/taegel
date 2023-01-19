@@ -43,7 +43,6 @@ def get_data(url_list: List[str], target: str) -> List[Data]:
     playlists: List[str] = []
     videos: List[str] = []
     playlists, videos = urllist_split(url_list)
-    print()  # empty print for astetic propurses
 
     result: List[Data] = [] if len(videos) < 1 else [
         models.objects.Data(target=target, sources=videos)
