@@ -1,13 +1,12 @@
-import models
-import views
+import taegel.models as models
+import taegel.views as views
 
 import pytube
 import os
-import time
 
 from typing import List
 from multiprocessing.connection import Connection
-from models.objects import Data
+from taegel.models.objects import Data
 from pytube import Playlist, YouTube, Stream
 
 

@@ -1,10 +1,10 @@
-import models
-import views
-import controllers
+import taegel.models as models
+import taegel.views as views
+import taegel.controllers as controllers
 
 import rich.console  # debug
 
-from models.objects import Data
+from taegel.models.objects import Data
 from typing import List
 from rich.console import Console
 from re import Match

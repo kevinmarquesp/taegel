@@ -22,7 +22,8 @@ idle_config: List[Any] = [
 def idle(description: str) -> Callable:
     def decorator(func: Callable) -> Callable:
         def wrapper(*args: Any) -> Callable:
-            with rich.progress.Progress(*idle_config, transient=True) as progress:
+            with rich.progress.Progress(*idle_config,
+                                        transient=True) as progress:
                 progress.add_task(description, total=None)
                 return func(*args)
         return wrapper

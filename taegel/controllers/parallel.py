@@ -1,6 +1,6 @@
-import models
-import views
-import controllers
+import taegel.models as models
+import taegel.views as views
+import taegel.controllers as controllers
 
 import time
 import multiprocessing as mp
@@ -9,7 +9,8 @@ from multiprocessing import Process
 from multiprocessing.connection import Connection
 
 
-def download_pool(pipe: Connection, data: models.objects.Data, parallel: int) -> None:
+def download_pool(pipe: Connection, data: models.objects.Data,
+                  parallel: int) -> None:
     with mp.Pool(parallel) as pool:
         pool.starmap(controllers.youtube.download,
                      [(pipe, data.target, url) for url in data.sources])

@@ -1,5 +1,5 @@
-import models
-import controllers
+import taegel.models as models
+import taegel.controllers as controllers
 
 import rich
 import rich.traceback
@@ -7,11 +7,9 @@ import rich.console
 
 from typing import List
 from argparse import Namespace
-from models.objects import Data
-from rich.console import Console
+from taegel.models.objects import Data
 
 rich.traceback.install()
-console: Console = rich.console.Console()
 
 
 # todo: add a docstring
