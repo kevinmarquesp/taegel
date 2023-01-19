@@ -31,9 +31,18 @@ def idle(description: str) -> Callable:
 
 # todo: add a docstring
 def downloading(pipe: Connection, total: int) -> None:
+    bfr: str = ''  # buffer to store strings temporarialy
+
     with rich.progress.Progress(*progress_config, transient=True) as progress:
         task_download = progress.add_task('Downloading...', total=total)
 
+        bfr = '[on green] [/] It may take a while, be patiente! :coffee:\n'
+        progress.console.print(bfr)
+
         while not progress.finished:
-            if pipe.recv():
+            status: dict = pipe.recv()
+            bfr = f'Downloaded [cyan]{status["title"]}[/] with success!'
+            progress.console.print(bfr, style='green')
+
+            if status['status']:
                 progress.update(task_download, advance=1)
