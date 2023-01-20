@@ -24,8 +24,10 @@ jobs:
       - uses: abatilo/actions-poetry@v2.2.0
       - run: |
           poetry --version
-          poetry export -f requirements.txt --with dev --without-hashes --output requirements.txt
-          python -m pip install -r requirements.txt 
+          time poetry install
+          # poetry export -f requirements.txt --with dev --without-hashes --output requirements.txt
+          # time python -m pip install -r requirements.txt 
+        
 
       - name: Build documentation
         run: |
