@@ -25,15 +25,7 @@ jobs:
         run: |
           echo "installing the pip dependencies..."
           python -m pip install sphinx sphinx-rtd-theme sphinx-autodocgen
-          mkdir gh-pages
-          touch gh-pages/.nojekyll
-
-          echo "building the docummentation pages..."
-          cd docs
-          # sphinx-apidoc --force -o . ../taegel
-          # sphinx-build -b html . _build
-          # cp -r _build/* ../gh-pages
-          make html
+          cd docs; make html
           cp -r _build/html/* ../gh-pages
 
       - name: Deploy documentation
@@ -41,4 +33,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: gh-pages
+          folder: docs/_build/html
