@@ -21,10 +21,14 @@ jobs:
         with:
           python-version: 3.10.9  # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
 
+      - uses: abatilo/actions-poetry@v2.2.0
+      - run: |
+          poetry --version
+          poetry export -f requirements.txt --with dev --without-hashes --output requirements.txt
+          python -m pip -r requirements.txt 
+
       - name: Build documentation
         run: |
-          echo "installing the pip dependencies..."
-          python -m pip install sphinx sphinx-rtd-theme sphinx-autodocgen
           cd docs
           make html
 
