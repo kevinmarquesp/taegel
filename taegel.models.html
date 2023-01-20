@@ -99,7 +99,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.html#taegel-app-module">taegel.app module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="taegel.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.html#module-taegel">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -180,14 +180,53 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="taegel-models-arguments-module">
-<h2>taegel.models.arguments module<a class="headerlink" href="#taegel-models-arguments-module" title="Permalink to this heading">¶</a></h2>
+<section id="module-taegel.models.arguments">
+<span id="taegel-models-arguments-module"></span><h2>taegel.models.arguments module<a class="headerlink" href="#module-taegel.models.arguments" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.models.arguments.get_args">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.arguments.</span></span><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Namespace</span></span></span><a class="headerlink" href="#taegel.models.arguments.get_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function with all the argument configuration using the <code class="docutils literal notranslate"><span class="pre">argparser</span></code>
+library that return the arguments given by the user in a ease to use
+<code class="docutils literal notranslate"><span class="pre">Namespace</span></code> object.</p>
+</dd></dl>
+
 </section>
-<section id="taegel-models-objects-module">
-<h2>taegel.models.objects module<a class="headerlink" href="#taegel-models-objects-module" title="Permalink to this heading">¶</a></h2>
+<section id="module-taegel.models.objects">
+<span id="taegel-models-objects-module"></span><h2>taegel.models.objects module<a class="headerlink" href="#module-taegel.models.objects" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="taegel.models.objects.DownloadData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.objects.</span></span><span class="sig-name descname"><span class="pre">DownloadData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.objects.DownloadData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to pack the crucial information to work with.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.objects.DownloadData.sources">
+<span class="sig-name descname"><span class="pre">sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.objects.DownloadData.sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of videos to be saved in the <code class="docutils literal notranslate"><span class="pre">target</span></code> directory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.objects.DownloadData.target">
+<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#taegel.models.objects.DownloadData.target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target directory related with the YouTube video links.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.objects.regex_playlist">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.objects.</span></span><span class="sig-name descname"><span class="pre">regex_playlist</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('playlist\\?list=')</span></em><a class="headerlink" href="#taegel.models.objects.regex_playlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regex object to verify if the (validated) URL is, in fact, a playlist.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.objects.regex_url">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.objects.</span></span><span class="sig-name descname"><span class="pre">regex_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:https?://)?(?:www\\.)?(?:youtube\\.com/(watch\\?v=|playlist\\?list=)|youtu\\.be/)([^&amp;]{11})')</span></em><a class="headerlink" href="#taegel.models.objects.regex_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regex object to validate if an URL is an valid YouTube video or playlist.</p>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="module-taegel.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-taegel.models" title="Permalink to this heading">¶</a></h2>
 </section>
 </section>
 
