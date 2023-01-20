@@ -20,13 +20,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.10.9  # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
-          cache: pip
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip
-      - run: pip install sphinx sphinx-rtd-theme sphinx-autodocgen
-        shell: bash
 
       - name: Poetry
         uses: abatilo/actions-poetry@v2.2.0
@@ -34,7 +27,7 @@ jobs:
       - name: Build documentation
         run: |
           echo "installing the pip dependencies..."
-          pip install sphinx-rtd-theme sphinx-autodocgen
+          poetry install
           mkdir gh-pages
           touch gh-pages/.nojekyll
           echo "building the docummentation pages..."
