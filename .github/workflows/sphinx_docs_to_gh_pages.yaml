@@ -5,11 +5,6 @@ on:
     branches:
       - main
 
-dependencies:
-  - python=3.10.9
-  - sphinx-rtd-theme
-  - sphinx-autodocgen
-
 jobs:
   sphinx_docs_to_gh-pages:
     runs-on: ubuntu-latest
@@ -30,9 +25,11 @@ jobs:
 
       - name: Build documentation
         run: |
+          echo "installing the pip dependencies..."
           pip install sphinx-rtd-theme sphinx-autodocgen
           mkdir gh-pages
           touch gh-pages/.nojekyll
+          echo "building the docummentation pages..."
           cd docs
           poetry run sphinx-build -b html . _build
           cp -r _build/* ../gh-pages
