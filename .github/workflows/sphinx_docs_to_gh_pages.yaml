@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+dependencies:
+  - python=3.10.9
+  - sphinx-rtd-theme
+  - sphinx-autodocgen
+
 jobs:
   sphinx_docs_to_gh-pages:
     runs-on: ubuntu-latest
@@ -16,9 +21,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.10.9  # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+          cache: pip
+        run: pip install sphinx-rtd-theme sphinx-autodocgen
 
       - uses: abatilo/actions-poetry@v2.2.0
 
