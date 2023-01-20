@@ -1,73 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>taegel package &mdash; taegel  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="taegel.controllers package" href="taegel.controllers.html" />
     <link rel="prev" title="taegel" href="modules.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> taegel
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">taegel</a><ul class="current">
@@ -98,7 +50,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#taegel-app-module">taegel.app module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-taegel.app">taegel.app module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#taegel.app.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-taegel">Module contents</a></li>
 </ul>
 </li>
@@ -106,86 +61,58 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">taegel</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="modules.html">taegel</a> &raquo;</li>
-        
-      <li>taegel package</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">taegel</a></li>
+      <li class="breadcrumb-item active">taegel package</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/taegel.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <section id="taegel-package">
-<h1>taegel package<a class="headerlink" href="#taegel-package" title="Permalink to this heading">¶</a></h1>
+<h1>taegel package<a class="headerlink" href="#taegel-package" title="Permalink to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">¶</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="taegel.controllers.html">taegel.controllers package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#taegel-controllers-filesystem-module">taegel.controllers.filesystem module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#taegel-controllers-parallel-module">taegel.controllers.parallel module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#taegel-controllers-validate-module">taegel.controllers.validate module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#taegel-controllers-youtube-module">taegel.controllers.youtube module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.filesystem">taegel.controllers.filesystem module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.filesystem.check_target_dir"><code class="docutils literal notranslate"><span class="pre">check_target_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.parallel">taegel.controllers.parallel module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.parallel.download_pool"><code class="docutils literal notranslate"><span class="pre">download_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.parallel.handler"><code class="docutils literal notranslate"><span class="pre">handler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.validate">taegel.controllers.validate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.validate.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.validate.urllist_split"><code class="docutils literal notranslate"><span class="pre">urllist_split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.youtube">taegel.controllers.youtube module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.youtube.download"><code class="docutils literal notranslate"><span class="pre">download()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="taegel.models.html">taegel.models package</a><ul>
@@ -209,71 +136,70 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="taegel.views.html">taegel.views package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="taegel.views.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.views.html#taegel-views-out-module">taegel.views.out module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.views.html#taegel-views-progress-module">taegel.views.progress module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taegel.views.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.views.html#module-taegel.views.out">taegel.views.out module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.out.print"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.out.warting"><code class="docutils literal notranslate"><span class="pre">warting()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.views.html#module-taegel.views.progress">taegel.views.progress module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.downloading"><code class="docutils literal notranslate"><span class="pre">downloading()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.idle"><code class="docutils literal notranslate"><span class="pre">idle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.idle_config"><code class="docutils literal notranslate"><span class="pre">idle_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.progress_config"><code class="docutils literal notranslate"><span class="pre">progress_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="taegel.views.html#module-taegel.views">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="taegel-app-module">
-<h2>taegel.app module<a class="headerlink" href="#taegel-app-module" title="Permalink to this heading">¶</a></h2>
+<section id="module-taegel.app">
+<span id="taegel-app-module"></span><h2>taegel.app module<a class="headerlink" href="#module-taegel.app" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.app.run">
+<span class="sig-prename descclassname"><span class="pre">taegel.app.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.app.run" title="Permalink to this definition"></a></dt>
+<dd><p>Main function to run the taegel cli tool. It needs to.</p>
+</dd></dl>
+
 </section>
 <section id="module-taegel">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-taegel" title="Permalink to this heading">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-taegel" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="taegel.controllers.html" class="btn btn-neutral float-right" title="taegel.controllers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="taegel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="taegel.controllers.html" class="btn btn-neutral float-right" title="taegel.controllers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, @kevinmarquesp.
-
-    </p>
+    <p>&#169; Copyright 2023, @kevinmarquesp.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
