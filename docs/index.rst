@@ -9,6 +9,8 @@ Welcome to taegel's documentation!
 This is my first time writing a decent docummentation for a project. Hope you
 enjoy!
 
+I'm testing the Github action thing, thats my 20748931894th try.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
