@@ -30,9 +30,11 @@ jobs:
 
           echo "building the docummentation pages..."
           cd docs
-          sphinx-apidoc --force -o . ../taegel
-          sphinx-build -b html . _build
-          cp -r _build/* ../gh-pages
+          # sphinx-apidoc --force -o . ../taegel
+          # sphinx-build -b html . _build
+          # cp -r _build/* ../gh-pages
+          make html
+          cp -r _build/html/* ../gh-pages
 
       - name: Deploy documentation
         if: ${{ github.event_name == 'push' }}
