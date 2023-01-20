@@ -30,6 +30,7 @@ jobs:
 
           echo "building the docummentation pages..."
           cd docs
+          sphinx-apidoc --force -o . ../taegel
           sphinx-build -b html . _build
           cp -r _build/* ../gh-pages
 
