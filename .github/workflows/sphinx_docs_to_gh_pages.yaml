@@ -25,7 +25,8 @@ jobs:
         run: |
           echo "installing the pip dependencies..."
           python -m pip install sphinx sphinx-rtd-theme sphinx-autodocgen
-          cd docs; make html
+          cd docs
+          make html
 
       - name: Deploy documentation
         if: ${{ github.event_name == 'push' }}
