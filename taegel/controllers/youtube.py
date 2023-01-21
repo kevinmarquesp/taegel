@@ -6,20 +6,20 @@ import os
 
 from typing import List
 from multiprocessing.connection import Connection
-from taegel.models.objects import DownloadData
+from taegel.models.types import AlbumInfo
 from pytube import Playlist, YouTube, Stream
 
 
 @views.progress.idle('Fetching...')
-def playlist_videos(url: str, target: str) -> DownloadData:
-    """Given a playlist link, it will create an ``DownloadData`` object with a
+def playlist_to_album(url: str, target: str) -> AlbumInfo:
+    """Given a playlist link, it will create an ``AlbumInfo`` object with a
     list of the videos within that plylist. The ``target`` field will be
     appended with the playlist name.
 
     :param str url: Playlist URL.
     :param str target: Target directory.
     """
-    views.out.print(f'Getting list from: {url}')
+    views.log.print(f'getting videos list from [black]{url}[/]')
 
     playlist: Playlist = pytube.Playlist(url)
     target: str = f'{target}/{playlist.title}'
@@ -28,10 +28,9 @@ def playlist_videos(url: str, target: str) -> DownloadData:
     for url_video in playlist:
         sources.append(url_video)
 
-    return models.objects.DownloadData(target=target, sources=sources)
+    return models.types.AlbumInfo(target=target, sources=sources)
 
 
-# todo: add a docstring
 def download(cpipe: Connection, target: str, url: str) -> None:
     """Download the YouTube video and save to the ``target`` directory. Sending
     some useful log information throught the parent pipe channel.
@@ -48,11 +47,21 @@ def download(cpipe: Connection, target: str, url: str) -> None:
         video: Stream | None = youtube.streams.filter(only_audio=True).first()
 
     except Exception as err:
-        cpipe.send({'info': err, 'is_ok': False,  'done': True})
+        cpipe.send({'info': err, 'is_ok': False,  'done': True, 'url': url})
         return
 
     target_file: str = video.download(output_path=target)
 
-    basename, _ = os.path.splitext(target_file)
-    os.rename(target_file, basename + '.mp3')
-    cpipe.send({'info': youtube.title, 'is_ok': True,  'done': True})
+    # todo: check if the mp3 file is already downloaded
+    try:
+        basename, _ = os.path.splitext(target_file)
+        os.rename(target_file, basename + '.mp3')
+    except:
+        pass
+
+    cpipe.send({
+                   'info': youtube.title,
+                   'is_ok': True,
+                   'done': True,
+                   'url': url
+               })

@@ -1,2 +1,2 @@
 import taegel.views.progress
-import taegel.views.out
+import taegel.views.log

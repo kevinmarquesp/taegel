@@ -43,13 +43,9 @@ def downloading(ppipe: Connection, total: int) -> None:
     :param Connection ppipe: Parent pipe channel to recive information.
     :param int total: Total steps to comple the progress bar.
     """
-    bfr: str = ''  # buffer to store strings temporarialy
-
     with rich.progress.Progress(*progress_config, transient=True) as prog:
         task_download = prog.add_task('Downloading...', total=total)
-
-        bfr = '[on green] [/] It may take a while, be patient! :coffee:\n'
-        prog.console.print(bfr)
+        prog.console.print('[on green] [/] It may take a while, be patient! :coffee:\n')
 
         while not prog.finished:
             status: dict = ppipe.recv()
@@ -58,9 +54,8 @@ def downloading(ppipe: Connection, total: int) -> None:
                 prog.update(task_download, advance=1)
 
             if status['is_ok']:
-                bfr = f'Downloaded [cyan]{status["info"]}[/] with success!'
-                prog.console.print(bfr, style='green')
+                prog.console.print(f"Downloaded [cyan]{status['info']}[/] with success! [black]{status['url']}[/]")
 
             else:
-                bfr = f'{status["info"]}, sorry...'
+                bfr = f"{status['info']}, sorry... {status['url']}"
                 prog.console.print(bfr, style='red')

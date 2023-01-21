@@ -1,27 +1,34 @@
 import taegel.models as models
+import taegel.views as views
 import taegel.controllers as ctr
 
 import rich
 import rich.traceback
-import rich.console
 
 from typing import List
 from argparse import Namespace
-from taegel.models.objects import DownloadData
+from taegel.models.types import AlbumInfo
 
 rich.traceback.install()
 
 
 def run() -> None:
-    """ Main function to run the taegel cli tool. It needs to.
+    """ Main function to run the taegel cli tool.
     """
     args: Namespace = models.arguments.get_args()
 
-    data_arr: List[DownloadData] = ctr.validate.get_data(args.url, args.target)
-    print()  # empty print for astetic propurses
+    views.log.print('checking up arguments', title=True)
+    user_url = ctr.data.filter_arguments(args.url)
 
-    for data in data_arr:
-        ctr.filesystem.check_target_dir(data.target)
+    views.log.print('generating objects', title=True)
+    album_list: List[AlbumInfo] = ctr.data.gen_album_list(user_url.videos,
+                                                          user_url.playlists,
+                                                          args.target)
 
-    for data in data_arr:
-        ctr.parallel.handler(data, args.parallel)
+    views.log.print('creating directories', title=True)
+    for album in album_list:
+        ctr.filesystem.check_target_dir(album.target)
+
+    views.log.print('starting the download process', title=True)
+    for album in album_list:
+        ctr.parallel.download_handler(album, args.parallel)

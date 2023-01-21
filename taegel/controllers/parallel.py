@@ -3,12 +3,12 @@ import taegel.controllers as ctr
 
 import multiprocessing as mp
 
-from taegel.models.objects import DownloadData
+from taegel.models.types import AlbumInfo
 from multiprocessing import Process
 from multiprocessing.connection import Connection
 
 
-def download_pool(cpipe: Connection, down_data: DownloadData,
+def download_pool(cpipe: Connection, down_data: AlbumInfo,
                   parallel_procs: int) -> None:
     """Create a pool of processes and call the
     :py:meth:`taegel.controllers.youtube.download` function using the URL list
@@ -27,12 +27,12 @@ def download_pool(cpipe: Connection, down_data: DownloadData,
                      for url in down_data.sources])
 
 
-def handler(down_data: DownloadData, parallel_procs: int) -> None:
+def download_handler(down_data: AlbumInfo, parallel_procs: int) -> None:
     """Main download handler that runs the multiprocessing stuff and the nice
     looking progress bar (:py:meth:`taegel.views.progress.downloading`) at the
     same time in different process.
 
-    They shar information -- such as some logging messages -- through a pipe
+    They share information -- such as some logging messages -- through a pipe
     channel connected in these two proccesses.
 
     :param DownloadData down_data: Information needed to execute the
