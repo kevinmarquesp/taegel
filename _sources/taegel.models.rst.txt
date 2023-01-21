@@ -12,10 +12,18 @@ taegel.models.arguments module
    :undoc-members:
    :show-inheritance:
 
-taegel.models.objects module
-----------------------------
+taegel.models.regex module
+--------------------------
 
-.. automodule:: taegel.models.objects
+.. automodule:: taegel.models.regex
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+taegel.models.types module
+--------------------------
+
+.. automodule:: taegel.models.types
    :members:
    :undoc-members:
    :show-inheritance:

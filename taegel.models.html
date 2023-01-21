@@ -100,37 +100,84 @@ library that return the arguments given by the user in a ease to use
 </dd></dl>
 
 </section>
-<section id="module-taegel.models.objects">
-<span id="taegel-models-objects-module"></span><h2>taegel.models.objects module<a class="headerlink" href="#module-taegel.models.objects" title="Permalink to this heading"></a></h2>
+<section id="module-taegel.models.regex">
+<span id="taegel-models-regex-module"></span><h2>taegel.models.regex module<a class="headerlink" href="#module-taegel.models.regex" title="Permalink to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.regex.playlist">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.regex.</span></span><span class="sig-name descname"><span class="pre">playlist</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:https?://)?(?:www\\.)?(?:youtube\\.com/playlist\\?list=|youtu\\.be/)([^&amp;]{11})')</span></em><a class="headerlink" href="#taegel.models.regex.playlist" title="Permalink to this definition"></a></dt>
+<dd><p>Regex object to verify if the string is a YouTube playlist URL.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.regex.playlist_id">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.regex.</span></span><span class="sig-name descname"><span class="pre">playlist_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('playlist\\?list=([^&amp;]{34})')</span></em><a class="headerlink" href="#taegel.models.regex.playlist_id" title="Permalink to this definition"></a></dt>
+<dd><p>Regex object to verify if the string has an valid video id.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.regex.valid">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.regex.</span></span><span class="sig-name descname"><span class="pre">valid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:https?://)?(?:www\\.)?(?:youtube\\.com/(watch\\?v=|playlist\\?list=)|youtu\\.be/)([^&amp;]{11})')</span></em><a class="headerlink" href="#taegel.models.regex.valid" title="Permalink to this definition"></a></dt>
+<dd><p>Regex object to validate if an string is an valid YouTube URL.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.regex.video">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.regex.</span></span><span class="sig-name descname"><span class="pre">video</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:https?://)?(?:www\\.)?(?:youtube\\.com/watch\\?v=|youtu\\.be/)([^&amp;]{11})')</span></em><a class="headerlink" href="#taegel.models.regex.video" title="Permalink to this definition"></a></dt>
+<dd><p>Regex object to verify if the string is a YouTube video URL.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="taegel.models.regex.video_id">
+<span class="sig-prename descclassname"><span class="pre">taegel.models.regex.</span></span><span class="sig-name descname"><span class="pre">video_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('watch\\?v=([^&amp;]{11})')</span></em><a class="headerlink" href="#taegel.models.regex.video_id" title="Permalink to this definition"></a></dt>
+<dd><p>Regex object to verify if the string has an valid video id.</p>
+</dd></dl>
+
+</section>
+<section id="module-taegel.models.types">
+<span id="taegel-models-types-module"></span><h2>taegel.models.types module<a class="headerlink" href="#module-taegel.models.types" title="Permalink to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="taegel.models.objects.DownloadData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.objects.</span></span><span class="sig-name descname"><span class="pre">DownloadData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.objects.DownloadData" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="taegel.models.types.AlbumInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">AlbumInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.types.AlbumInfo" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to pack the crucial information to work with.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="taegel.models.objects.DownloadData.sources">
-<span class="sig-name descname"><span class="pre">sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.objects.DownloadData.sources" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="taegel.models.types.AlbumInfo.sources">
+<span class="sig-name descname"><span class="pre">sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.AlbumInfo.sources" title="Permalink to this definition"></a></dt>
 <dd><p>List of videos to be saved in the <code class="docutils literal notranslate"><span class="pre">target</span></code> directory.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="taegel.models.objects.DownloadData.target">
-<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#taegel.models.objects.DownloadData.target" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="taegel.models.types.AlbumInfo.target">
+<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#taegel.models.types.AlbumInfo.target" title="Permalink to this definition"></a></dt>
 <dd><p>Target directory related with the YouTube video links.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="taegel.models.objects.regex_playlist">
-<span class="sig-prename descclassname"><span class="pre">taegel.models.objects.</span></span><span class="sig-name descname"><span class="pre">regex_playlist</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('playlist\\?list=')</span></em><a class="headerlink" href="#taegel.models.objects.regex_playlist" title="Permalink to this definition"></a></dt>
-<dd><p>Regex object to verify if the (validated) URL is, in fact, a playlist.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">ArgsFiltered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">videos:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playlists:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.types.ArgsFiltered" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A more organized version of the  URL list argument given by the user,
+instead of just a confusing and long list.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.playlists">
+<span class="sig-name descname"><span class="pre">playlists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.playlists" title="Permalink to this definition"></a></dt>
+<dd><p>List with only with the <strong>playlist</strong> URL’s</p>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="taegel.models.objects.regex_url">
-<span class="sig-prename descclassname"><span class="pre">taegel.models.objects.</span></span><span class="sig-name descname"><span class="pre">regex_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Pattern</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:https?://)?(?:www\\.)?(?:youtube\\.com/(watch\\?v=|playlist\\?list=)|youtu\\.be/)([^&amp;]{11})')</span></em><a class="headerlink" href="#taegel.models.objects.regex_url" title="Permalink to this definition"></a></dt>
-<dd><p>Regex object to validate if an URL is an valid YouTube video or playlist.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.raw">
+<span class="sig-name descname"><span class="pre">raw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.raw" title="Permalink to this definition"></a></dt>
+<dd><p>Raw user argument, without any filter or order.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.videos">
+<span class="sig-name descname"><span class="pre">videos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.videos" title="Permalink to this definition"></a></dt>
+<dd><p>List with only with the <strong>videos</strong> URL’s</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>

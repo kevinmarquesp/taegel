@@ -4,10 +4,10 @@ taegel.views package
 Submodules
 ----------
 
-taegel.views.out module
+taegel.views.log module
 -----------------------
 
-.. automodule:: taegel.views.out
+.. automodule:: taegel.views.log
    :members:
    :undoc-members:
    :show-inheritance:

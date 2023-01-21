@@ -4,6 +4,14 @@ taegel.controllers package
 Submodules
 ----------
 
+taegel.controllers.data module
+------------------------------
+
+.. automodule:: taegel.controllers.data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 taegel.controllers.filesystem module
 ------------------------------------
 
@@ -16,14 +24,6 @@ taegel.controllers.parallel module
 ----------------------------------
 
 .. automodule:: taegel.controllers.parallel
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-taegel.controllers.validate module
-----------------------------------
-
-.. automodule:: taegel.controllers.validate
    :members:
    :undoc-members:
    :show-inheritance:
