@@ -11,6 +11,16 @@ class AlbumInfo:
     #: List of videos to be saved in the ``target`` directory.
     sources: list[str] = dataclasses.field(default_factory=list)
 
+    @property
+    def as_dict(self) -> dict[str, str | list[str]]:
+        """Property to get a dict version of an instance of that class to save
+        in the cache database.
+        """
+        return {
+            'target': self.target,
+            'sources': self.sources
+        }
+
 
 @dataclasses.dataclass(frozen=True)
 class ArgsFiltered:

@@ -2,11 +2,12 @@ import taegel.models as models
 import taegel.views as views
 import taegel.controllers as ctr
 
+import sys
 import rich
 import rich.traceback
 
 from argparse import Namespace
-from taegel.models.types import AlbumInfo
+from taegel.models.types import AlbumInfo, ArgsFiltered
 
 rich.traceback.install()
 
@@ -14,14 +15,14 @@ rich.traceback.install()
 def run() -> None:
     """ Main function to run the taegel cli tool.
     """
-    args: Namespace = models.arguments.get_args()
+    args: Namespace = models.arguments.get_args(sys.argv)
 
     views.log.print('checking up arguments', title=True)
-    user_url = ctr.data.filter_arguments(args.url)
+    user_links: ArgsFiltered = ctr.data.filter_arguments(args.url)
 
     views.log.print('generating objects', title=True)
-    album_list: list[AlbumInfo] = ctr.data.gen_album_list(user_url.videos,
-                                                          user_url.playlists,
+    album_list: list[AlbumInfo] = ctr.data.gen_album_list(user_links.videos,
+                                                          user_links.playlists,
                                                           args.target)
 
     views.log.print('creating directories', title=True)
