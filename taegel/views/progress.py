@@ -1,11 +1,11 @@
 import rich.progress
 
 from multiprocessing.connection import Connection
-from typing import List, Any, Callable
+from typing import Any, Callable
 
 
 #: Configuration for the download process progress bar display
-progress_config: List[Any] = [
+progress_config: list[Any] = [
     rich.progress.SpinnerColumn(),
     '{task.description}',
     rich.progress.BarColumn(),
@@ -13,7 +13,7 @@ progress_config: List[Any] = [
 ]
 
 #: Configuration for the idle progress bar display
-idle_config: List[Any] = [
+idle_config: list[Any] = [
     rich.progress.SpinnerColumn(),
     '{task.description}',
     rich.progress.BarColumn()

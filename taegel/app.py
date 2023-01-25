@@ -5,7 +5,6 @@ import taegel.controllers as ctr
 import rich
 import rich.traceback
 
-from typing import List
 from argparse import Namespace
 from taegel.models.types import AlbumInfo
 
@@ -21,7 +20,7 @@ def run() -> None:
     user_url = ctr.data.filter_arguments(args.url)
 
     views.log.print('generating objects', title=True)
-    album_list: List[AlbumInfo] = ctr.data.gen_album_list(user_url.videos,
+    album_list: list[AlbumInfo] = ctr.data.gen_album_list(user_url.videos,
                                                           user_url.playlists,
                                                           args.target)
 

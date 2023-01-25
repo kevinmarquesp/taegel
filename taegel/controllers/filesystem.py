@@ -14,4 +14,4 @@ def check_target_dir(target: str) -> None:
         os.mkdir(target)
 
     elif len(os.listdir(target)) > 0:
-        views.log.warning(f'the target directory is not empty! [black]{target}[/]')
+        views.log.warning(f'the target is not empty! [black]{target}[/]')

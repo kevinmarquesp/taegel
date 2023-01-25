@@ -4,7 +4,6 @@ import taegel.views as views
 import pytube
 import os
 
-from typing import List
 from multiprocessing.connection import Connection
 from taegel.models.types import AlbumInfo
 from pytube import Playlist, YouTube, Stream
@@ -24,7 +23,7 @@ def playlist_to_album(url: str, target: str) -> AlbumInfo:
     playlist: Playlist = pytube.Playlist(url)
     target: str = f'{target}/{playlist.title}'
 
-    sources: List[str] = []
+    sources: list[str] = []
     for url_video in playlist:
         sources.append(url_video)
 

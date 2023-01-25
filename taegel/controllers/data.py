@@ -3,7 +3,6 @@ import taegel.views as views
 import taegel.controllers as ctr
 
 from taegel.models.types import AlbumInfo, ArgsFiltered
-from typing import List
 from re import Match
 
 
@@ -11,7 +10,7 @@ def _id_to_url(id: str) -> str:
     return f'https://www.youtube.com/{id}'
 
 
-def filter_arguments(url_list: List[str]) -> ArgsFiltered:
+def filter_arguments(url_list: list[str]) -> ArgsFiltered:
     """Given an list of links, or random strings, it will return an object
     that separates the videos from the playlist in a way to select just the
     valid links or the ones that was not appended to the video or playlists
@@ -23,10 +22,10 @@ def filter_arguments(url_list: List[str]) -> ArgsFiltered:
 
     :param List[str] url_list: Unordered list provided by the user.
     """
-    videos: List[str] = []
-    videos_id: List[str] = []
-    playlists: List[str] = []
-    playlists_id: List[str] = []
+    videos: list[str] = []
+    videos_id: list[str] = []
+    playlists: list[str] = []
+    playlists_id: list[str] = []
 
     for url in url_list:
         is_valid: None | Match = models.regex.valid.search(url)
@@ -62,17 +61,16 @@ def filter_arguments(url_list: List[str]) -> ArgsFiltered:
     videos.extend(list(map(_id_to_url, videos_id)))
     playlists.extend(list(map(_id_to_url, playlists_id)))
 
-    return models.types.ArgsFiltered(raw=url_list, videos=videos,
-                                      playlists=playlists)
+    return models.types.ArgsFiltered(videos=videos, playlists=playlists)
 
 
-def get_videos(url_list: List[str]) -> List[str]:
+def get_videos(url_list: list[str]) -> list[str]:
     """Filters the list looking just for valid video only links (not playlists)
     and returns a list with unique video URL's.
 
     :param List[str] url_list: List of mixed links provided by the user.
     """
-    result_videos: List[str] = []
+    result_videos: list[str] = []
 
     for url in url_list:
         is_valid: None | Match = models.types.regex_url.search(url)
@@ -84,13 +82,13 @@ def get_videos(url_list: List[str]) -> List[str]:
     return result_videos
 
 
-def get_playlist(url_list: List[str]) -> List[str]:
+def get_playlist(url_list: list[str]) -> list[str]:
     """Filters the list looking just for valid playlist only links (not videos)
     and returns a list with unique playlist URL's.
 
     :param List[str] url_list: List of mixed links provided by the user.
     """
-    result_playlist: List[str] = []
+    result_playlist: list[str] = []
 
     for url in url_list:
         is_valid: None | Match = models.types.regex_url.search(url)
@@ -102,8 +100,8 @@ def get_playlist(url_list: List[str]) -> List[str]:
     return result_playlist
 
 
-def gen_album_list(videos: List[str], playlists: List[str],
-                   root_target: str) -> List[AlbumInfo]:
+def gen_album_list(videos: list[str], playlists: list[str],
+                   root_target: str) -> list[AlbumInfo]:
     """Return a list with a ``AlbumInfo`` object for each playlist. The
     ``target`` field for each of them will be the ``target`` parameter plus the
     playlist name, or the ``target`` itself for the videos only URL's (they
@@ -113,7 +111,7 @@ def gen_album_list(videos: List[str], playlists: List[str],
     :param str target: User's target directory to download the files
     """
     # the result will be empty if any indiviual videos was provided
-    album_list: List[AlbumInfo] = [] if len(videos) < 1 else [
+    album_list: list[AlbumInfo] = [] if len(videos) < 1 else [
         models.types.AlbumInfo(target=root_target, sources=videos)
     ]
 

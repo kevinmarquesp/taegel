@@ -2,7 +2,6 @@ import re
 
 from re import Pattern
 
-
 #: Regex object to validate if an string is an valid YouTube URL.
 valid: Pattern = re.compile(r'^(?:https?://)?(?:www\.)?(?:youtube\.com/(watch\?v=|playlist\?list=)|youtu\.be/)([^&]{11})')
 
