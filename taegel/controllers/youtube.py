@@ -1,5 +1,6 @@
 import taegel.models as models
 import taegel.views as views
+import taegel.controllers as ctr
 
 import pytube
 import os
@@ -50,17 +51,7 @@ def download(cpipe: Connection, target: str, url: str) -> None:
         return
 
     target_file: str = video.download(output_path=target)
+    filesystem_log: str = ctr.filesystem.rename_song(target_file)
 
-    # todo: check if the mp3 file is already downloaded
-    try:
-        basename, _ = os.path.splitext(target_file)
-        os.rename(target_file, basename + '.mp3')
-    except:
-        pass
-
-    cpipe.send({
-                   'info': youtube.title,
-                   'is_ok': True,
-                   'done': True,
-                   'url': url
-               })
+    cpipe.send({'info': youtube.title, 'is_ok': True, 'done': True,
+               'url': url, 'desc': filesystem_log})

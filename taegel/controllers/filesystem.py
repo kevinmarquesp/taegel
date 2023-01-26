@@ -20,6 +20,21 @@ def check_target_dir(target: str, display=True) -> None:
         views.log.warning(f'the target is not empty! [black]{target}[/]')
 
 
+def rename_song(target_file: str) -> None | str:
+    """Rename a mp4 song to an mp3 one, and return an info message if that file
+    already exists.
+
+    :param str terget_file: Full path with the song name.
+    """
+    basename, _ = os.path.splitext(target_file)
+    mp3_file = basename + '.mp3'
+
+    if os.path.exists(mp3_file):
+        return f'The [cyan]{mp3_file}[] already exists'
+
+    os.rename(target_file, mp3_file)
+
+
 # todo: make it cross plataform
 def create_cache_dir() -> str:
     """Create the taegel cache dir and return the name of that directory.

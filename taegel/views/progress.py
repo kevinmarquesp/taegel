@@ -1,5 +1,6 @@
 import rich.progress
 
+from rich.progress import Progress
 from multiprocessing.connection import Connection
 from typing import Any, Callable
 
@@ -36,6 +37,12 @@ def idle(description: str) -> Callable:
     return decorator
 
 
+def downloading_log(ppipe: Connection, prog: Progress) -> None:
+    """
+    """
+    pass
+
+
 def downloading(ppipe: Connection, total: int, done: int) -> None:
     """Display a progress bar that recives the progress information throught
     parent pipe channel.
@@ -61,3 +68,6 @@ def downloading(ppipe: Connection, total: int, done: int) -> None:
             else:
                 prog.console.print(f"{status['info']}, sorry... {status['url']}",
                                    style='red')
+
+            if status['desc'] is not None:
+                prog.console.print(status['desc'])
