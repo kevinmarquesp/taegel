@@ -3,7 +3,6 @@ import taegel.views as views
 import taegel.controllers as ctr
 
 import pytube
-import os
 
 from multiprocessing.connection import Connection
 from taegel.models.types import AlbumInfo
@@ -31,6 +30,22 @@ def playlist_to_album(url: str, target: str) -> AlbumInfo:
     return models.types.AlbumInfo(target=target, sources=sources)
 
 
+def youtube_api(url: str) -> tuple[None | YouTube, None | Stream, None | str]:
+    """Connect to the Youtube API to get the URL information (such as title,
+    channel name, etc) and the video to download.
+
+    :param str url: Video URL to handle.
+    """
+    try:
+        youtube: YouTube = pytube.YouTube(url)
+        video: None | Stream = youtube.streams.filter(only_audio=True).first()
+
+    except Exception as err:
+        return None, None, str(err)
+
+    return youtube, video, None
+
+
 def download(cpipe: Connection, target: str, url: str) -> None:
     """Download the YouTube video and save to the ``target`` directory. Sending
     some useful log information throught the parent pipe channel.
@@ -42,11 +57,13 @@ def download(cpipe: Connection, target: str, url: str) -> None:
     :param str target: Target directory path.
     :param str url: Video URL.
     """
-    try:
-        youtube: YouTube = pytube.YouTube(url)
-        video: Stream | None = youtube.streams.filter(only_audio=True).first()
+    youtube: None | YouTube
+    video: None | Stream
+    err: None | str
 
-    except Exception as err:
+    youtube, video, err = youtube_api(url)
+
+    if err is not None:
         cpipe.send({'info': err, 'is_ok': False,  'done': True, 'url': url})
         return
 
