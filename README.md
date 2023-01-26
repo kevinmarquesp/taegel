@@ -14,8 +14,9 @@ python -m pip install .
 rename of the downloaded file (some times it download as *mp4* format)
 - [ ] **`controllers.youtube:`** abstract the connection with youtbue api in a
 function in  the `models` module
-- [ ] **`perf:`** let the main process handle the views instead of creating a
-whole new process for that
+- [ ] **`controllers.data:`** use the number of processess specified by the
+user to fetch the video urls from a playlist (which means: fetch more than one
+playlist at the same time)
 - [ ] **`app:`** handle the cache files and directories (without the reading
 feature yet, be patient)
     - [ ] **`1:`** save the raw arguments into the cash directory
