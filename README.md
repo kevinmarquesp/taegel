@@ -10,10 +10,12 @@ python -m pip install .
 
 ## Roadmap
 ### todos
-- [ ] **`controllers.youtube:`** create a separated function just to handle the
+- [x] **`controllers.youtube:`** ~~create a separated function just to handle the~~
 rename of the downloaded file (some times it download as *mp4* format)
-- [ ] **`controllers.youtube:`** abstract the connection with youtbue api in a
-function in  the `models` module
+- [x] **`controllers.youtube:`** ~~abstract the connection with youtbue api in a
+function in  the `models` module~~
+- [ ] **`ref:`** create an dict type for the download logging communication
+- [ ] **`ci/cd:`** add type checking with `mypy` module
 - [ ] **`controllers.data:`** use the number of processess specified by the
 user to fetch the video urls from a playlist (which means: fetch more than one
 playlist at the same time)
