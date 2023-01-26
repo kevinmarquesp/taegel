@@ -10,10 +10,7 @@ python -m pip install .
 
 ## Roadmap
 ### todos
-- [x] **`controllers.youtube:`** ~~create a separated function just to handle the~~
-rename of the downloaded file (some times it download as *mp4* format)
-- [x] **`controllers.youtube:`** ~~abstract the connection with youtbue api in a
-function in  the `models` module~~
+- [ ] **`feat:`** save the channel name as artist in the metadata
 - [ ] **`ref:`** create an dict type for the download logging communication
 - [ ] **`ci/cd:`** add type checking with `mypy` module
 - [ ] **`controllers.data:`** use the number of processess specified by the
@@ -29,3 +26,7 @@ feature yet, be patient)
     (even if it fails)
 - [ ] **`ci/cd:`** write tests for the most of the controllers functions
 - [x] **`docs:`** ~~add a todo list~~
+- [x] **`controllers.youtube:`** ~~create a separated function just to handle the
+rename of the downloaded file (some times it download as *mp4* format)~~
+- [x] **`controllers.youtube:`** ~~abstract the connection with youtbue api in a
+function in  the `models` module~~
