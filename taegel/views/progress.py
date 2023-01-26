@@ -36,7 +36,7 @@ def idle(description: str) -> Callable:
     return decorator
 
 
-def downloading(ppipe: Connection, total: int) -> None:
+def downloading(ppipe: Connection, total: int, done: int) -> None:
     """Display a progress bar that recives the progress information throught
     parent pipe channel.
 
@@ -45,6 +45,8 @@ def downloading(ppipe: Connection, total: int) -> None:
     """
     with rich.progress.Progress(*progress_config, transient=True) as prog:
         task_download = prog.add_task('Downloading...', total=total)
+        prog.update(task_download, advance=done)
+
         prog.console.print('[on green] [/] It may take a while, be patient! :coffee:\n')
 
         while not prog.finished:
@@ -57,5 +59,5 @@ def downloading(ppipe: Connection, total: int) -> None:
                 prog.console.print(f"Downloaded [cyan]{status['info']}[/] with success! [black]{status['url']}[/]")
 
             else:
-                bfr = f"{status['info']}, sorry... {status['url']}"
-                prog.console.print(bfr, style='red')
+                prog.console.print(f"{status['info']}, sorry... {status['url']}",
+                                   style='red')

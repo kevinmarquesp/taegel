@@ -13,8 +13,6 @@ rich.traceback.install()
 
 
 def run() -> None:
-    """ Main function to run the taegel cli tool.
-    """
     args: Namespace = models.arguments.get_args(sys.argv)
 
     views.log.print('checking up arguments', title=True)
@@ -31,4 +29,4 @@ def run() -> None:
 
     views.log.print('starting the download process', title=True)
     for album in album_list:
-        ctr.parallel.download_handler(album, args.parallel)
+        ctr.parallel.download_handler(album, args.parallel, len(album.sources))
