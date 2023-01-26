@@ -3,6 +3,7 @@ import taegel.views as views
 import taegel.controllers as ctr
 
 from taegel.models.types import AlbumInfo, ArgsFiltered
+from typing import Optional
 from re import Match
 
 
@@ -28,25 +29,27 @@ def filter_arguments(url_list: list[str]) -> ArgsFiltered:
     playlists_id: list[str] = []
 
     for url in url_list:
-        is_valid: None | Match = models.regex.valid.search(url)
-        is_playlist: None | Match = models.regex.playlist.search(url)
-        is_video: None | Match = models.regex.video.search(url)
+        is_valid: Optional[Match] = models.regex.valid.search(url)
+        is_playlist: Optional[Match] = models.regex.playlist.search(url)
+        is_video: Optional[Match] = models.regex.video.search(url)
 
-        has_vid: None | Match = models.regex.video_id.search(url)
-        url_vid: None | str = has_vid.group() if has_vid is not None else None
+        has_vid: Optional[Match] = models.regex.video_id.search(url)
+        url_vid: Optional[str] = (has_vid.group() if has_vid is
+                                  not None else None)
 
-        has_pid: None | Match = models.regex.playlist_id.search(url)
-        url_pid: None | str = has_pid.group() if has_pid is not None else None
+        has_pid: Optional[Match] = models.regex.playlist_id.search(url)
+        url_pid: Optional[str] = (has_pid.group() if has_pid is
+                                  not None else None)
 
         if (url_pid in playlists_id or url_vid in videos_id
                 or url in videos + playlists):
             views.log.warning(f'you already gave that url [black]{url}[/]')
 
-        elif not is_valid and has_vid:
+        elif not is_valid and has_vid and url_vid:
             views.log.warning(f'wait, it has an video id! [black]{url}[/]')
             videos_id.append(url_vid)
 
-        elif not is_valid and has_pid:
+        elif not is_valid and has_pid and url_pid:
             views.log.warning(f'wait, it has an playlist id! [black]{url}[/]')
             playlists_id.append(url_pid)
 
@@ -62,42 +65,6 @@ def filter_arguments(url_list: list[str]) -> ArgsFiltered:
     playlists.extend(list(map(_id_to_url, playlists_id)))
 
     return models.types.ArgsFiltered(videos=videos, playlists=playlists)
-
-
-def get_videos(url_list: list[str]) -> list[str]:
-    """Filters the list looking just for valid video only links (not playlists)
-    and returns a list with unique video URL's.
-
-    :param List[str] url_list: List of mixed links provided by the user.
-    """
-    result_videos: list[str] = []
-
-    for url in url_list:
-        is_valid: None | Match = models.types.regex_url.search(url)
-        is_playlist: None | Match = models.types.regex_playlist.search(url)
-
-        if is_valid and not is_playlist and url not in result_videos:
-            result_videos.append(url)
-
-    return result_videos
-
-
-def get_playlist(url_list: list[str]) -> list[str]:
-    """Filters the list looking just for valid playlist only links (not videos)
-    and returns a list with unique playlist URL's.
-
-    :param List[str] url_list: List of mixed links provided by the user.
-    """
-    result_playlist: list[str] = []
-
-    for url in url_list:
-        is_valid: None | Match = models.types.regex_url.search(url)
-        is_playlist: None | Match = models.types.regex_playlist.search(url)
-
-        if is_valid and is_playlist and url not in result_playlist:
-            result_playlist.append(url)
-
-    return result_playlist
 
 
 def gen_album_list(videos: list[str], playlists: list[str],

@@ -3,6 +3,8 @@ import taegel.views as views
 import os
 from datetime import datetime
 
+from typing import Optional
+
 
 def check_target_dir(target: str, display=True) -> None:
     """Check if the target directory exists and create it if not. Also, it will
@@ -20,12 +22,15 @@ def check_target_dir(target: str, display=True) -> None:
         views.log.warning(f'the target is not empty! [black]{target}[/]')
 
 
-def rename_song(target_file: str) -> None | str:
+def rename_song(target_file: Optional[str]) -> Optional[str]:
     """Rename a mp4 song to an mp3 one, and return an info message if that file
     already exists.
 
     :param str terget_file: Full path with the song name.
     """
+    if target_file is None:
+        return None
+
     basename, _ = os.path.splitext(target_file)
     mp3_file = basename + '.mp3'
 
@@ -33,6 +38,7 @@ def rename_song(target_file: str) -> None | str:
         return f'The [cyan]{mp3_file}[] already exists'
 
     os.rename(target_file, mp3_file)
+    return None
 
 
 # todo: make it cross plataform
@@ -41,7 +47,8 @@ def create_cache_dir() -> str:
     Of course it isn't cross plataform, which meas it work only on unix
     machines.
     """
-    cache: str = os.getenv('HOME') + '/.cache'
+    # todo: check if the OS has the HOME variable (breaking)
+    cache: str = f"{os.getenv('HOME')}/.cache"
     check_target_dir(cache, display=False)
 
     cache = f'{cache}/taegel'

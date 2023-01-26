@@ -7,6 +7,7 @@ import pytube
 from multiprocessing.connection import Connection
 from taegel.models.types import AlbumInfo
 from pytube import Playlist, YouTube, Stream
+from typing import Optional
 
 
 @views.progress.idle('Fetching...')
@@ -21,7 +22,7 @@ def playlist_to_album(url: str, target: str) -> AlbumInfo:
     views.log.print(f'getting videos list from [black]{url}[/]')
 
     playlist: Playlist = pytube.Playlist(url)
-    target: str = f'{target}/{playlist.title}'
+    target = f'{target}/{playlist.title}'
 
     sources: list[str] = []
     for url_video in playlist:
@@ -30,7 +31,8 @@ def playlist_to_album(url: str, target: str) -> AlbumInfo:
     return models.types.AlbumInfo(target=target, sources=sources)
 
 
-def youtube_api(url: str) -> tuple[None | YouTube, None | Stream, None | str]:
+def youtube_api(url: str) -> tuple[Optional[YouTube], Optional[Stream],
+                                   Optional[str]]:
     """Connect to the Youtube API to get the URL information (such as title,
     channel name, etc) and the video to download.
 
@@ -57,18 +59,21 @@ def download(cpipe: Connection, target: str, url: str) -> None:
     :param str target: Target directory path.
     :param str url: Video URL.
     """
-    youtube: None | YouTube
-    video: None | Stream
-    err: None | str
+    youtube: Optional[YouTube] = None
+    video: Optional[Stream] = None
+    err: Optional[str] = None
+    filesystem_log: Optional[str] = None
 
     youtube, video, err = youtube_api(url)
 
-    if err is not None:
-        cpipe.send({'info': err, 'is_ok': False,  'done': True, 'url': url})
+    # simple type error handler
+    if err is not None or not (youtube and video):
+        cpipe.send({'info': err, 'is_ok': False,  'done': True, 'url': url,
+                   'desc': None})
         return
 
-    target_file: str = video.download(output_path=target)
-    filesystem_log: str = ctr.filesystem.rename_song(target_file)
+    target_file: Optional[str] = video.download(output_path=target)
+    filesystem_log = ctr.filesystem.rename_song(target_file)
 
     cpipe.send({'info': youtube.title, 'is_ok': True, 'done': True,
                'url': url, 'desc': filesystem_log})
