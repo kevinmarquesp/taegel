@@ -3,6 +3,7 @@ import rich.progress
 from rich.progress import Progress, TaskID
 from multiprocessing.connection import Connection
 from typing import Any, Callable
+from taegel.models.types import DownloadLog
 
 
 #: Configuration for the download process progress bar display
@@ -45,19 +46,19 @@ def downloading_handler(ppipe: Connection, prog: Progress, task: TaskID) -> None
     :param Progress prog: Progress bar to update and display the log messages.
     :param TaskID task: Task to be updated.
     """
-    status: dict = ppipe.recv()
     log: Callable = prog.console.print
+    download_log: DownloadLog = ppipe.recv()
 
-    if status['done']:
+    if download_log['task_done']:
         prog.update(task, advance=1)
 
-    if status['is_ok']:
-        log(f"Downloaded [cyan]{status['info']}[/] with success! [black]{status['url']}[/]")
+    if download_log['status_ok']:
+        log(f"Downloaded [cyan]{download_log['title']}[/] with success! [black]{download_log['url']}[/]")
     else:
-        log(f"{status['info']}, sorry... {status['url']}", style='red')
+        log(f"Could not download {download_log['url']}, sorry...", style='red')
 
-    if status['desc'] is not None:
-        log(status['desc'])
+    if download_log['task_description'] is not None:
+        log(f"[yellow]warning:[/] {download_log['task_description']}")
 
 
 def downloading(ppipe: Connection, total: int, done: int) -> None:

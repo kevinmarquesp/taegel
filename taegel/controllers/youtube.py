@@ -62,18 +62,29 @@ def download(cpipe: Connection, target: str, url: str) -> None:
     youtube: Optional[YouTube] = None
     video: Optional[Stream] = None
     err: Optional[str] = None
-    filesystem_log: Optional[str] = None
 
     youtube, video, err = youtube_api(url)
 
     # simple type error handler
     if err is not None or not (youtube and video):
-        cpipe.send({'info': err, 'is_ok': False,  'done': True, 'url': url,
-                   'desc': None})
+        cpipe.send({
+            'url': url,
+            'status_ok': False,
+            'task_done': True,
+            'title': None,
+            'channel': None,
+            'task_description': 'Maybe this URL is invalid or the video is not available'
+        })
         return
 
     target_file: Optional[str] = video.download(output_path=target)
-    filesystem_log = ctr.filesystem.rename_song(target_file)
+    filesystem_log: Optional[str] = ctr.filesystem.rename_song(target_file)
 
-    cpipe.send({'info': youtube.title, 'is_ok': True, 'done': True,
-               'url': url, 'desc': filesystem_log})
+    cpipe.send({
+        'url': url,
+        'status_ok': True,
+        'task_done': True,
+        'title': video.title,
+        'channel': youtube.author,
+        'task_description': filesystem_log
+    })

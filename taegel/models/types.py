@@ -1,5 +1,8 @@
+from typing import TypedDict
 import dataclasses
 import os
+
+from typing import Optional
 
 
 @dataclasses.dataclass(frozen=True)
@@ -31,3 +34,24 @@ class ArgsFiltered:
     videos: list[str] = dataclasses.field(default_factory=list)
     #: List with only with the **playlist** URL's
     playlists: list[str] = dataclasses.field(default_factory=list)
+
+
+class DownloadLog(TypedDict):
+    """Dictionary shape that the :py:meth:`controllers.youtube.download()` will
+    send throught the pipe to the other processes or functions. Use that class,
+    and that kind of dict, just in that method to share important information
+    to the other parts of the code, set the unused properties as `None` or
+    `False`.
+    """
+    #: Youtube URL string to that specifc video
+    url: str
+    #: Success status of the download
+    status_ok: bool
+    #: If that task will update the progress bar
+    task_done: bool
+    #: Video title string
+    title: Optional[str]
+    #: Channel name
+    channel: Optional[str]
+    #: Log description, to display on the progress bar
+    task_description: Optional[str]
