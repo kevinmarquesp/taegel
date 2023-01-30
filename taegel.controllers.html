@@ -93,7 +93,7 @@
 <span id="taegel-controllers-data-module"></span><h2>taegel.controllers.data module<a class="headerlink" href="#module-taegel.controllers.data" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.controllers.data.filter_arguments">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.data.</span></span><span class="sig-name descname"><span class="pre">filter_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="taegel.models.html#taegel.models.types.ArgsFiltered" title="taegel.models.types.ArgsFiltered"><span class="pre">ArgsFiltered</span></a></span></span><a class="headerlink" href="#taegel.controllers.data.filter_arguments" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.data.</span></span><span class="sig-name descname"><span class="pre">filter_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="taegel.models.html#taegel.models.types.ArgsFiltered" title="taegel.models.types.ArgsFiltered"><span class="pre">ArgsFiltered</span></a></span></span><a class="headerlink" href="#taegel.controllers.data.filter_arguments" title="Permalink to this definition"></a></dt>
 <dd><p>Given an list of links, or random strings, it will return an object
 that separates the videos from the playlist in a way to select just the
 valid links or the ones that was not appended to the video or playlists
@@ -110,7 +110,7 @@ example, URL’s will work just fine with that function.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.controllers.data.gen_album_list">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.data.</span></span><span class="sig-name descname"><span class="pre">gen_album_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">videos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playlists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">AlbumInfo</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#taegel.controllers.data.gen_album_list" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.data.</span></span><span class="sig-name descname"><span class="pre">gen_album_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">videos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playlists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">procs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">taegel.models.types.AlbumInfo</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#taegel.controllers.data.gen_album_list" title="Permalink to this definition"></a></dt>
 <dd><p>Return a list with a <code class="docutils literal notranslate"><span class="pre">AlbumInfo</span></code> object for each playlist. The
 <code class="docutils literal notranslate"><span class="pre">target</span></code> field for each of them will be the <code class="docutils literal notranslate"><span class="pre">target</span></code> parameter plus the
 playlist name, or the <code class="docutils literal notranslate"><span class="pre">target</span></code> itself for the videos only URL’s (they
@@ -118,33 +118,10 @@ will be trated as a single playlist).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>url_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List with a bunch of links given by the user.</p></li>
-<li><p><strong>target</strong> (<em>str</em>) – User’s target directory to download the files</p></li>
+<li><p><strong>videos</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List with a bunch of links given by the user.</p></li>
+<li><p><strong>playlists</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List with a bunch of playlist links.</p></li>
+<li><p><strong>root_target</strong> (<em>str</em>) – User’s target directory to download the files.</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="taegel.controllers.data.get_playlist">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.data.</span></span><span class="sig-name descname"><span class="pre">get_playlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#taegel.controllers.data.get_playlist" title="Permalink to this definition"></a></dt>
-<dd><p>Filters the list looking just for valid playlist only links (not videos)
-and returns a list with unique playlist URL’s.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>url_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of mixed links provided by the user.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="taegel.controllers.data.get_videos">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.data.</span></span><span class="sig-name descname"><span class="pre">get_videos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#taegel.controllers.data.get_videos" title="Permalink to this definition"></a></dt>
-<dd><p>Filters the list looking just for valid video only links (not playlists)
-and returns a list with unique video URL’s.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>url_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of mixed links provided by the user.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -154,12 +131,35 @@ and returns a list with unique video URL’s.</p>
 <span id="taegel-controllers-filesystem-module"></span><h2>taegel.controllers.filesystem module<a class="headerlink" href="#module-taegel.controllers.filesystem" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.controllers.filesystem.check_target_dir">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.filesystem.</span></span><span class="sig-name descname"><span class="pre">check_target_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.controllers.filesystem.check_target_dir" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.filesystem.</span></span><span class="sig-name descname"><span class="pre">check_target_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.controllers.filesystem.check_target_dir" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the target directory exists and create it if not. Also, it will
 complain if the target directory is not empty.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>target</strong> (<em>str</em>) – Path to the directory to check/create</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>str</em>) – Path to the directory to check/create</p></li>
+<li><p><strong>display</strong> (<em>bool</em>) – Display log messages when interating with the system</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.controllers.filesystem.create_cache_dir">
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.filesystem.</span></span><span class="sig-name descname"><span class="pre">create_cache_dir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#taegel.controllers.filesystem.create_cache_dir" title="Permalink to this definition"></a></dt>
+<dd><p>Create the taegel cache dir and return the name of that directory.
+Of course it isn’t cross plataform, which meas it work only on unix
+machines.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.controllers.filesystem.rename_song">
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.filesystem.</span></span><span class="sig-name descname"><span class="pre">rename_song</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#taegel.controllers.filesystem.rename_song" title="Permalink to this definition"></a></dt>
+<dd><p>Rename a mp4 song to an mp3 one, and return an info message if that file
+already exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>terget_file</strong> (<em>str</em>) – Full path with the song name.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -169,7 +169,7 @@ complain if the target directory is not empty.</p>
 <span id="taegel-controllers-parallel-module"></span><h2>taegel.controllers.parallel module<a class="headerlink" href="#module-taegel.controllers.parallel" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.controllers.parallel.download_handler">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.parallel.</span></span><span class="sig-name descname"><span class="pre">download_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">down_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">AlbumInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel_procs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.controllers.parallel.download_handler" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.parallel.</span></span><span class="sig-name descname"><span class="pre">download_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">album</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">AlbumInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">procs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.controllers.parallel.download_handler" title="Permalink to this definition"></a></dt>
 <dd><p>Main download handler that runs the multiprocessing stuff and the nice
 looking progress bar (<a class="reference internal" href="taegel.views.html#taegel.views.progress.downloading" title="taegel.views.progress.downloading"><code class="xref py py-meth docutils literal notranslate"><span class="pre">taegel.views.progress.downloading()</span></code></a>) at the
 same time in different process.</p>
@@ -180,9 +180,10 @@ channel connected in these two proccesses.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>down_data</strong> (<em>DownloadData</em>) – Information needed to execute the
 downloading process.</p></li>
-<li><p><strong>parallel_procs</strong> (<em>int</em>) – How manny processes will be running at the same
-time to download the URL list in the
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">taegel.models.objects.DownloadData()</span></code> object.</p></li>
+<li><p><strong>procs</strong> (<em>int</em>) – How many processes will be running to download the URL
+list in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">taegel.models.objects.DownloadData()</span></code> object.</p></li>
+<li><p><strong>tasks</strong> (<em>int</em>) – How many tasks need to run.</p></li>
+<li><p><strong>done</strong> (<em>int</em>) – How many of them is already done.</p></li>
 </ul>
 </dd>
 </dl>
@@ -190,7 +191,7 @@ time to download the URL list in the
 
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.controllers.parallel.download_pool">
-<span class="sig-prename descclassname"><span class="pre">taegel.controllers.parallel.</span></span><span class="sig-name descname"><span class="pre">download_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpipe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">down_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">AlbumInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel_procs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.controllers.parallel.download_pool" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.parallel.</span></span><span class="sig-name descname"><span class="pre">download_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpipe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">album</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">AlbumInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">procs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.controllers.parallel.download_pool" title="Permalink to this definition"></a></dt>
 <dd><p>Create a pool of processes and call the
 <a class="reference internal" href="#taegel.controllers.youtube.download" title="taegel.controllers.youtube.download"><code class="xref py py-meth docutils literal notranslate"><span class="pre">taegel.controllers.youtube.download()</span></code></a> function using the URL list
 provide by the <code class="docutils literal notranslate"><span class="pre">down_data</span></code> parammeter. That function will be executed
@@ -226,6 +227,34 @@ video is not valid, and terminate the function without errors.</p>
 <li><p><strong>target</strong> (<em>str</em>) – Target directory path.</p></li>
 <li><p><strong>url</strong> (<em>str</em>) – Video URL.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.controllers.youtube.playlist_to_album">
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.youtube.</span></span><span class="sig-name descname"><span class="pre">playlist_to_album</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo" title="taegel.models.types.AlbumInfo"><span class="pre">AlbumInfo</span></a></span></span><a class="headerlink" href="#taegel.controllers.youtube.playlist_to_album" title="Permalink to this definition"></a></dt>
+<dd><p>Given a playlist link, it will create an <code class="docutils literal notranslate"><span class="pre">AlbumInfo</span></code> object with a
+list of the videos within that plylist. The <code class="docutils literal notranslate"><span class="pre">target</span></code> field will be
+appended with the playlist name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – Playlist URL.</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – Target directory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.controllers.youtube.youtube_api">
+<span class="sig-prename descclassname"><span class="pre">taegel.controllers.youtube.</span></span><span class="sig-name descname"><span class="pre">youtube_api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pytube.__main__.YouTube</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pytube.streams.Stream</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#taegel.controllers.youtube.youtube_api" title="Permalink to this definition"></a></dt>
+<dd><p>Connect to the Youtube API to get the URL information (such as title,
+channel name, etc) and the video to download.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Video URL to handle.</p>
 </dd>
 </dl>
 </dd></dl>

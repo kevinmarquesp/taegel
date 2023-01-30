@@ -97,12 +97,12 @@
 <li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.data">taegel.controllers.data module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.data.filter_arguments"><code class="docutils literal notranslate"><span class="pre">filter_arguments()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.data.gen_album_list"><code class="docutils literal notranslate"><span class="pre">gen_album_list()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.data.get_playlist"><code class="docutils literal notranslate"><span class="pre">get_playlist()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.data.get_videos"><code class="docutils literal notranslate"><span class="pre">get_videos()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.filesystem">taegel.controllers.filesystem module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.filesystem.check_target_dir"><code class="docutils literal notranslate"><span class="pre">check_target_dir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.filesystem.create_cache_dir"><code class="docutils literal notranslate"><span class="pre">create_cache_dir()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.filesystem.rename_song"><code class="docutils literal notranslate"><span class="pre">rename_song()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.parallel">taegel.controllers.parallel module</a><ul>
@@ -112,6 +112,8 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers.youtube">taegel.controllers.youtube module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.youtube.download"><code class="docutils literal notranslate"><span class="pre">download()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.youtube.playlist_to_album"><code class="docutils literal notranslate"><span class="pre">playlist_to_album()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.controllers.html#taegel.controllers.youtube.youtube_api"><code class="docutils literal notranslate"><span class="pre">youtube_api()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="taegel.controllers.html#module-taegel.controllers">Module contents</a></li>
@@ -133,14 +135,23 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="taegel.models.html#module-taegel.models.types">taegel.models.types module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo"><code class="docutils literal notranslate"><span class="pre">AlbumInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo.as_dict"><code class="docutils literal notranslate"><span class="pre">AlbumInfo.as_dict</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo.sources"><code class="docutils literal notranslate"><span class="pre">AlbumInfo.sources</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.AlbumInfo.target"><code class="docutils literal notranslate"><span class="pre">AlbumInfo.target</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.models.html#taegel.models.types.ArgsFiltered"><code class="docutils literal notranslate"><span class="pre">ArgsFiltered</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.ArgsFiltered.playlists"><code class="docutils literal notranslate"><span class="pre">ArgsFiltered.playlists</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.ArgsFiltered.raw"><code class="docutils literal notranslate"><span class="pre">ArgsFiltered.raw</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.ArgsFiltered.videos"><code class="docutils literal notranslate"><span class="pre">ArgsFiltered.videos</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog"><code class="docutils literal notranslate"><span class="pre">DownloadLog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog.channel"><code class="docutils literal notranslate"><span class="pre">DownloadLog.channel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog.status_ok"><code class="docutils literal notranslate"><span class="pre">DownloadLog.status_ok</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog.task_description"><code class="docutils literal notranslate"><span class="pre">DownloadLog.task_description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog.task_done"><code class="docutils literal notranslate"><span class="pre">DownloadLog.task_done</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog.title"><code class="docutils literal notranslate"><span class="pre">DownloadLog.title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="taegel.models.html#taegel.models.types.DownloadLog.url"><code class="docutils literal notranslate"><span class="pre">DownloadLog.url</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -157,6 +168,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="taegel.views.html#module-taegel.views.progress">taegel.views.progress module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.downloading"><code class="docutils literal notranslate"><span class="pre">downloading()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.downloading_handler"><code class="docutils literal notranslate"><span class="pre">downloading_handler()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.idle"><code class="docutils literal notranslate"><span class="pre">idle()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.idle_config"><code class="docutils literal notranslate"><span class="pre">idle_config</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="taegel.views.html#taegel.views.progress.progress_config"><code class="docutils literal notranslate"><span class="pre">progress_config</span></code></a></li>
@@ -176,8 +188,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.app.run">
 <span class="sig-prename descclassname"><span class="pre">taegel.app.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.app.run" title="Permalink to this definition"></a></dt>
-<dd><p>Main function to run the taegel cli tool.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </section>
 <section id="module-taegel">

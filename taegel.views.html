@@ -119,7 +119,7 @@ before the text.</p>
 <span id="taegel-views-progress-module"></span><h2>taegel.views.progress module<a class="headerlink" href="#module-taegel.views.progress" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.views.progress.downloading">
-<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">downloading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppipe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.views.progress.downloading" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">downloading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppipe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">done</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.views.progress.downloading" title="Permalink to this definition"></a></dt>
 <dd><p>Display a progress bar that recives the progress information throught
 parent pipe channel.</p>
 <dl class="field-list simple">
@@ -127,6 +127,22 @@ parent pipe channel.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ppipe</strong> (<em>Connection</em>) – Parent pipe channel to recive information.</p></li>
 <li><p><strong>total</strong> (<em>int</em>) – Total steps to comple the progress bar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="taegel.views.progress.downloading_handler">
+<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">downloading_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppipe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Progress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TaskID</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#taegel.views.progress.downloading_handler" title="Permalink to this definition"></a></dt>
+<dd><p>Log handler for the <a class="reference internal" href="#taegel.views.progress.downloading" title="taegel.views.progress.downloading"><code class="xref py py-meth docutils literal notranslate"><span class="pre">downloading()</span></code></a> progress bar, this recives
+the info sended throught the <em>parent pipe</em> and update the task with that.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ppipe</strong> (<em>Connection</em>) – Parent pipe to recive the log status.</p></li>
+<li><p><strong>prog</strong> (<em>Progress</em>) – Progress bar to update and display the log messages.</p></li>
+<li><p><strong>task</strong> (<em>TaskID</em>) – Task to be updated.</p></li>
 </ul>
 </dd>
 </dl>
@@ -146,13 +162,13 @@ decorated function ends.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="taegel.views.progress.idle_config">
-<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">idle_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;rich.progress.SpinnerColumn</span> <span class="pre">object&gt;,</span> <span class="pre">'{task.description}',</span> <span class="pre">&lt;rich.progress.BarColumn</span> <span class="pre">object&gt;]</span></em><a class="headerlink" href="#taegel.views.progress.idle_config" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">idle_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;rich.progress.SpinnerColumn</span> <span class="pre">object&gt;,</span> <span class="pre">'{task.description}',</span> <span class="pre">&lt;rich.progress.BarColumn</span> <span class="pre">object&gt;]</span></em><a class="headerlink" href="#taegel.views.progress.idle_config" title="Permalink to this definition"></a></dt>
 <dd><p>Configuration for the idle progress bar display</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="taegel.views.progress.progress_config">
-<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">progress_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;rich.progress.SpinnerColumn</span> <span class="pre">object&gt;,</span> <span class="pre">'{task.description}',</span> <span class="pre">&lt;rich.progress.BarColumn</span> <span class="pre">object&gt;,</span> <span class="pre">&lt;rich.progress.TextColumn</span> <span class="pre">object&gt;]</span></em><a class="headerlink" href="#taegel.views.progress.progress_config" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.views.progress.</span></span><span class="sig-name descname"><span class="pre">progress_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;rich.progress.SpinnerColumn</span> <span class="pre">object&gt;,</span> <span class="pre">'{task.description}',</span> <span class="pre">&lt;rich.progress.BarColumn</span> <span class="pre">object&gt;,</span> <span class="pre">&lt;rich.progress.TextColumn</span> <span class="pre">object&gt;]</span></em><a class="headerlink" href="#taegel.views.progress.progress_config" title="Permalink to this definition"></a></dt>
 <dd><p>Configuration for the download process progress bar display</p>
 </dd></dl>
 

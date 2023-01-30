@@ -93,7 +93,7 @@
 <span id="taegel-models-arguments-module"></span><h2>taegel.models.arguments module<a class="headerlink" href="#module-taegel.models.arguments" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="taegel.models.arguments.get_args">
-<span class="sig-prename descclassname"><span class="pre">taegel.models.arguments.</span></span><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Namespace</span></span></span><a class="headerlink" href="#taegel.models.arguments.get_args" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">taegel.models.arguments.</span></span><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Namespace</span></span></span><a class="headerlink" href="#taegel.models.arguments.get_args" title="Permalink to this definition"></a></dt>
 <dd><p>Function with all the argument configuration using the <code class="docutils literal notranslate"><span class="pre">argparser</span></code>
 library that return the arguments given by the user in a ease to use
 <code class="docutils literal notranslate"><span class="pre">Namespace</span></code> object.</p>
@@ -137,12 +137,19 @@ library that return the arguments given by the user in a ease to use
 <span id="taegel-models-types-module"></span><h2>taegel.models.types module<a class="headerlink" href="#module-taegel.models.types" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="taegel.models.types.AlbumInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">AlbumInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.types.AlbumInfo" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">AlbumInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.types.AlbumInfo" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to pack the crucial information to work with.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="taegel.models.types.AlbumInfo.as_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">as_dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.AlbumInfo.as_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Property to get a dict version of an instance of that class to save
+in the cache database.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="taegel.models.types.AlbumInfo.sources">
-<span class="sig-name descname"><span class="pre">sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.AlbumInfo.sources" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.AlbumInfo.sources" title="Permalink to this definition"></a></dt>
 <dd><p>List of videos to be saved in the <code class="docutils literal notranslate"><span class="pre">target</span></code> directory.</p>
 </dd></dl>
 
@@ -156,26 +163,67 @@ library that return the arguments given by the user in a ease to use
 
 <dl class="py class">
 <dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">ArgsFiltered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">videos:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playlists:</span> <span class="pre">~typing.List[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.types.ArgsFiltered" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">ArgsFiltered</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">videos:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playlists:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#taegel.models.types.ArgsFiltered" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A more organized version of the  URL list argument given by the user,
 instead of just a confusing and long list.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.playlists">
-<span class="sig-name descname"><span class="pre">playlists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.playlists" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">playlists</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.playlists" title="Permalink to this definition"></a></dt>
 <dd><p>List with only with the <strong>playlist</strong> URL’s</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.raw">
-<span class="sig-name descname"><span class="pre">raw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.raw" title="Permalink to this definition"></a></dt>
-<dd><p>Raw user argument, without any filter or order.</p>
+<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.videos">
+<span class="sig-name descname"><span class="pre">videos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.videos" title="Permalink to this definition"></a></dt>
+<dd><p>List with only with the <strong>videos</strong> URL’s</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">taegel.models.types.</span></span><span class="sig-name descname"><span class="pre">DownloadLog</span></span><a class="headerlink" href="#taegel.models.types.DownloadLog" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Dictionary shape that the <code class="xref py py-meth docutils literal notranslate"><span class="pre">controllers.youtube.download()</span></code> will
+send throught the pipe to the other processes or functions. Use that class,
+and that kind of dict, just in that method to share important information
+to the other parts of the code, set the unused properties as <cite>None</cite> or
+<cite>False</cite>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog.channel">
+<span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.DownloadLog.channel" title="Permalink to this definition"></a></dt>
+<dd><p>Channel name</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="taegel.models.types.ArgsFiltered.videos">
-<span class="sig-name descname"><span class="pre">videos</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.ArgsFiltered.videos" title="Permalink to this definition"></a></dt>
-<dd><p>List with only with the <strong>videos</strong> URL’s</p>
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog.status_ok">
+<span class="sig-name descname"><span class="pre">status_ok</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#taegel.models.types.DownloadLog.status_ok" title="Permalink to this definition"></a></dt>
+<dd><p>Success status of the download</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog.task_description">
+<span class="sig-name descname"><span class="pre">task_description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.DownloadLog.task_description" title="Permalink to this definition"></a></dt>
+<dd><p>Log description, to display on the progress bar</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog.task_done">
+<span class="sig-name descname"><span class="pre">task_done</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#taegel.models.types.DownloadLog.task_done" title="Permalink to this definition"></a></dt>
+<dd><p>If that task will update the progress bar</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog.title">
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#taegel.models.types.DownloadLog.title" title="Permalink to this definition"></a></dt>
+<dd><p>Video title string</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="taegel.models.types.DownloadLog.url">
+<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#taegel.models.types.DownloadLog.url" title="Permalink to this definition"></a></dt>
+<dd><p>Youtube URL string to that specifc video</p>
 </dd></dl>
 
 </dd></dl>

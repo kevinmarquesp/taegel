@@ -79,8 +79,10 @@
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
  
 </div>
 <h2 id="A">A</h2>
@@ -92,13 +94,21 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.models.html#taegel.models.types.ArgsFiltered">ArgsFiltered (class in taegel.models.types)</a>
 </li>
+      <li><a href="taegel.models.html#taegel.models.types.AlbumInfo.as_dict">as_dict (taegel.models.types.AlbumInfo property)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog.channel">channel (taegel.models.types.DownloadLog attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.controllers.html#taegel.controllers.filesystem.check_target_dir">check_target_dir() (in module taegel.controllers.filesystem)</a>
+</li>
+      <li><a href="taegel.controllers.html#taegel.controllers.filesystem.create_cache_dir">create_cache_dir() (in module taegel.controllers.filesystem)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -110,11 +120,15 @@
 </li>
       <li><a href="taegel.controllers.html#taegel.controllers.parallel.download_handler">download_handler() (in module taegel.controllers.parallel)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.controllers.html#taegel.controllers.parallel.download_pool">download_pool() (in module taegel.controllers.parallel)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.views.html#taegel.views.progress.downloading">downloading() (in module taegel.views.progress)</a>
+</li>
+      <li><a href="taegel.views.html#taegel.views.progress.downloading_handler">downloading_handler() (in module taegel.views.progress)</a>
+</li>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog">DownloadLog (class in taegel.models.types)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -132,13 +146,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.controllers.html#taegel.controllers.data.gen_album_list">gen_album_list() (in module taegel.controllers.data)</a>
 </li>
-      <li><a href="taegel.models.html#taegel.models.arguments.get_args">get_args() (in module taegel.models.arguments)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="taegel.controllers.html#taegel.controllers.data.get_playlist">get_playlist() (in module taegel.controllers.data)</a>
-</li>
-      <li><a href="taegel.controllers.html#taegel.controllers.data.get_videos">get_videos() (in module taegel.controllers.data)</a>
+      <li><a href="taegel.models.html#taegel.models.arguments.get_args">get_args() (in module taegel.models.arguments)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -201,6 +211,8 @@
 </li>
       <li><a href="taegel.models.html#taegel.models.regex.playlist_id">playlist_id (in module taegel.models.regex)</a>
 </li>
+      <li><a href="taegel.controllers.html#taegel.controllers.youtube.playlist_to_album">playlist_to_album() (in module taegel.controllers.youtube)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.models.html#taegel.models.types.ArgsFiltered.playlists">playlists (taegel.models.types.ArgsFiltered attribute)</a>
@@ -215,7 +227,7 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="taegel.models.html#taegel.models.types.ArgsFiltered.raw">raw (taegel.models.types.ArgsFiltered attribute)</a>
+      <li><a href="taegel.controllers.html#taegel.controllers.filesystem.rename_song">rename_song() (in module taegel.controllers.filesystem)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -228,6 +240,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.models.html#taegel.models.types.AlbumInfo.sources">sources (taegel.models.types.AlbumInfo attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog.status_ok">status_ok (taegel.models.types.DownloadLog attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -284,8 +300,6 @@
         <li><a href="taegel.controllers.html#module-taegel.controllers.youtube">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     taegel.models
 
@@ -293,6 +307,8 @@
         <li><a href="taegel.models.html#module-taegel.models">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     taegel.models.arguments
 
@@ -337,6 +353,20 @@
       </ul></li>
       <li><a href="taegel.models.html#taegel.models.types.AlbumInfo.target">target (taegel.models.types.AlbumInfo attribute)</a>
 </li>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog.task_description">task_description (taegel.models.types.DownloadLog attribute)</a>
+</li>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog.task_done">task_done (taegel.models.types.DownloadLog attribute)</a>
+</li>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog.title">title (taegel.models.types.DownloadLog attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="taegel.models.html#taegel.models.types.DownloadLog.url">url (taegel.models.types.DownloadLog attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -360,6 +390,14 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="taegel.views.html#taegel.views.log.warning">warning() (in module taegel.views.log)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="taegel.controllers.html#taegel.controllers.youtube.youtube_api">youtube_api() (in module taegel.controllers.youtube)</a>
 </li>
   </ul></td>
 </tr></table>
