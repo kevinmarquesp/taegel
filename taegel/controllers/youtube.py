@@ -10,7 +10,6 @@ from pytube import Playlist, YouTube, Stream
 from typing import Optional
 
 
-@views.progress.idle('Fetching...')
 def playlist_to_album(url: str, target: str) -> AlbumInfo:
     """Given a playlist link, it will create an ``AlbumInfo`` object with a
     list of the videos within that plylist. The ``target`` field will be

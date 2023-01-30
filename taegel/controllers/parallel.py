@@ -8,6 +8,22 @@ from multiprocessing import Process
 from multiprocessing.connection import Connection
 
 
+@views.progress.idle('Fetching...')
+def select_playlist_videos(playlists: list[str], root_target: str,
+                           procs: int) -> list[AlbumInfo]:
+    """Function that generate a list of ``AlbumInfo`` objects based on a
+    list of Youtube playlist links. It will use multiple process and reutrn
+    the generated list once every list was done.
+
+    :param list[str] playlists: List of Youtube playlist links.
+    :param str root_target: The playlist name will be appended with that path.
+    :param int procs: How many processes will run at the same time to do that.
+    """
+    with mp.Pool(processes=procs) as pool:
+        return pool.starmap(ctr.youtube.playlist_to_album, [(url, root_target)
+                            for url in playlists])
+
+
 def download_pool(cpipe: Connection, album: AlbumInfo, procs: int) -> None:
     """Create a pool of processes and call the
     :py:meth:`taegel.controllers.youtube.download` function using the URL list
@@ -21,7 +37,7 @@ def download_pool(cpipe: Connection, album: AlbumInfo, procs: int) -> None:
       download.
     :param int parallel_procs: Max procs that will be running in parallel.
     """
-    with mp.Pool(procs) as pool:
+    with mp.Pool(processes=procs) as pool:
         pool.starmap(ctr.youtube.download, [(cpipe, album.target, url)
                      for url in album.sources])
 

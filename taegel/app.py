@@ -21,7 +21,8 @@ def run() -> None:
     views.log.print('generating objects', title=True)
     album_list: list[AlbumInfo] = ctr.data.gen_album_list(user_links.videos,
                                                           user_links.playlists,
-                                                          args.target)
+                                                          args.target,
+                                                          args.parallel)
 
     views.log.print('creating directories', title=True)
     for album in album_list:

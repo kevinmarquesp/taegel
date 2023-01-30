@@ -68,23 +68,21 @@ def filter_arguments(url_list: list[str]) -> ArgsFiltered:
 
 
 def gen_album_list(videos: list[str], playlists: list[str],
-                   root_target: str) -> list[AlbumInfo]:
+                   root_target: str, procs: int) -> list[AlbumInfo]:
     """Return a list with a ``AlbumInfo`` object for each playlist. The
     ``target`` field for each of them will be the ``target`` parameter plus the
     playlist name, or the ``target`` itself for the videos only URL's (they
     will be trated as a single playlist).
 
-    :param List[str] url_list: List with a bunch of links given by the user.
-    :param str target: User's target directory to download the files
+    :param list[str] videos: List with a bunch of links given by the user.
+    :param list[str] playlists: List with a bunch of playlist links.
+    :param str root_target: User's target directory to download the files.
     """
     # the result will be empty if any indiviual videos was provided
     album_list: list[AlbumInfo] = [] if len(videos) < 1 else [
         models.types.AlbumInfo(target=root_target, sources=videos)
     ]
 
-    # todo: use more than one process to fetch the playlist content
-    for url in playlists:
-        album: AlbumInfo = ctr.youtube.playlist_to_album(url, root_target)
-        album_list.append(album)
-
+    album_list += ctr.parallel.select_playlist_videos(playlists, root_target,
+                                                      procs)
     return album_list
